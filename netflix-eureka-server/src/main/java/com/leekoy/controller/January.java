@@ -11,14 +11,14 @@ public class January {
     @GetMapping("/sayHello")
     @ResponseBody
     public String sayHello() {
-        return "8080-> hello january !";
+        return "80-> hello january !";
     }
 
 
     @PostMapping("/sayWords")
     @ResponseBody
     public String sayWords(@RequestParam("words") String words) {
-        return "8080->" + words;
+        return "80->" + words;
     }
 
 }

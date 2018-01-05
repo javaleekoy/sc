@@ -1,0 +1,72 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-zuul
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://192.168.136.130:8761/eureka/
+
+
+zuul:
+  routes:
+    client:
+      path: /server/**
+      serviceId: EUREKA-SERVER-A
+      stripPrefix: true
+
+# 负载均衡模式
+#client:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+# 添加 listOfServers 属性，测试 zuul 的负载均衡功能
+ribbon:
+  eureka:
+    enabled: false
+EUREKA-SERVER-A: #  service-id 值
+  ribbon:
+    listOfServers: http://192.168.10.133:80,http://www.baidu.com
+
+
+#ribbon:
+#  eureka:
+#    enabled: false
+#client:
+#  ribbon:
+#    listOfServers: http://192.168.136.130:80,http://192.168.136.130:8080
+
+
+
+# 自定义微服务访问路径
+# zuul.routes.微服务Id = 指定路径
+#zuul:
+#  routes:
+#    eureka-client-a: /client/**
+
+# 忽略指定微服务
+# zuul.ignored-services=微服务Id1,微服务Id2...
+#zuul:
+#  ignored-services: eureka-client-a,eureka-client-b
+
+
+# 同时指定微服务Url和对应路径
+#zuul:
+#  routes:
+#    eureka-client-a:  # 我理解为路由别名--建议写成服务名这样好区分
+#      path: /a/**
+#      url: http://localhost:13306   # url 方式关联
+#    eureka-client-a-a:
+#      path: /b/**
+#      serviceId: EUREKA-CLIENT-A  # serviceId 方式关联
+#    baidu:
+#      path: /c/**
+#      url: http://www.baidu.com
+

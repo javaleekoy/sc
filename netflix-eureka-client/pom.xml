@@ -36,10 +36,39 @@
 
     <dependencies>
 
-        <!-- eureka-server -->
+        <!-- eureka-client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
+
+        <!-- security -->
+        <!--    <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+            </dependency>-->
+
+        <!-- feign 包装请求-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
+        <!-- ribbon 负载均衡 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
+
+        <!-- hystrix 容错性 依赖 actuator -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
             <version>1.4.0.RELEASE</version>
         </dependency>
 
@@ -49,11 +78,20 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- security -->
-    <!--    <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>-->
+        <!-- dashboard -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
+        <!-- turbine -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
 
     </dependencies>
 

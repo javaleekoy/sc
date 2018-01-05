@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
 discovery-username: leekoy
 discovery-password: 123456
 #security:
@@ -13,10 +13,12 @@ eureka:
     status-page-url-path: /info
     health-check-url-path: /health
     hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     service-url:
 #      defaultZone: http://${discovery-username}:${discovery-password}@192.168.136.130:8761/eureka/
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://192.168.136.130:8761/eureka/
     healthcheck:
       enabled: true
 spring:
