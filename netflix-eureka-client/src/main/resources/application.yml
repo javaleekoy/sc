@@ -1,5 +1,5 @@
 server:
-  port: 13306
+  port: 8080
 spring:
   application:
     name: eureka-client-a
@@ -21,7 +21,7 @@ eureka:
   client:
     service-url:
 #      defaultZone: http://${discovery-username}:${discovery-password}@192.168.136.130:8761/eureka/
-       defaultZone:  http://192.168.136.130:8761/eureka/
+       defaultZone: http://test1:8081/eureka/
     healthcheck:
       enabled: true
 feign:

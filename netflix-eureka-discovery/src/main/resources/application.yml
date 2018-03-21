@@ -1,8 +1,8 @@
 server:
-  port: 8761
+  port: 80
 spring:
   application:
-    name: eureka-discovery-1
+    name: netflix-eureka-server
 #security:
 #  basic:
 #    enabled: true
