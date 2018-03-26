@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * @author pd 2018/3/22.
+ * @author pd 2018/3/26.
  */
-@FeignClient(name = "client")
+@FeignClient(name = "client",fallback = FeignHystrixFallback.class)
 @Component
-public interface FeginOne {
+public interface FeignHystrix {
 
-    @GetMapping("/Jan/client")
+    @GetMapping("/Feb/hystrix2")
     String client1();
 
 }

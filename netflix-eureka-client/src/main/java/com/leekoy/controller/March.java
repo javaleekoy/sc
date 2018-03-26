@@ -1,6 +1,7 @@
 package com.leekoy.controller;
 
-import com.leekoy.service.mar.FeginOne;
+import com.leekoy.service.mar.FeignHystrix;
+import com.leekoy.service.mar.FeignOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class March {
 
     @Autowired
-    private FeginOne feginOne;
+    private FeignOne feignOne;
+
+    @Autowired
+    private FeignHystrix feignHystrix;
 
     @GetMapping("/client")
     public String client() {
-        return feginOne.client1();
+        return feignOne.client1();
+    }
+
+    @GetMapping("/client2")
+    public String client2() {
+        return feignHystrix.client1();
     }
 
 }

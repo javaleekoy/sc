@@ -73,7 +73,33 @@ Hystrix-dashboard是一款针对Hystrix进行实时监控的工具，通过Hystr
 访问地址：http://${hostname}:${port}/hystrix
 
 ```
-##### 集群监控(Turbine)
+##### Feign(实现负载均衡和容错保护)
 ```
+Feign包含了Ribbon和Hystrix
+
+@EnableFeignClients
+
+依赖jar包
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+    <version>1.4.0.RELEASE</version>
+</dependency>
+
+使用
+@FeignClient(name = "client",fallback = FeginHystrixFallback.class)
+@Component
+public interface FeginHystrix {
+    @GetMapping("/Feb/hystrix2")
+    String client1();
+}
+
+@Component
+public class FeginHystrixFallback implements FeginHystrix {
+    @Override
+    public String client1() {
+        return "error";
+    }
+}
 
 ```
