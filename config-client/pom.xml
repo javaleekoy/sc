@@ -50,7 +50,6 @@
             <version>1.4.0.RELEASE</version>
         </dependency>
 
-
     </dependencies>
 
     <!-- fat jar -->
