@@ -90,6 +90,19 @@
             <version>1.4.0.RELEASE</version>
         </dependency>
 
+        <!-- spring-config-client -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+            <version>1.4.0.RELEASE</version>
+        </dependency>
+
+        <!-- starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
     </dependencies>
 
 
